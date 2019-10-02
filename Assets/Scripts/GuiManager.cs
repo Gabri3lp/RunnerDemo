@@ -12,9 +12,10 @@ public class GuiManager : MonoBehaviour
     }
 
     public Text countdownText, timerText;
-    public GameObject playScreen, startScreen, shopScreen, gameOverScreen;
+    public GameObject playScreen, startScreen, shopScreen, gameOverScreen, pauseScreen;
     public Button buyLifeBtn;
     public Text lifeCountWorld, coinCountWorldText, gameOverScoreText, gameOverHighScoreText;
+    public InputField nameField;
     GameObject currentScreen;
     // Start is called before the first frame update
     void Start()
@@ -23,16 +24,20 @@ public class GuiManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OpenGameOverScreen(int score, int highScore){
         gameOverScoreText.text = "Score:" + score.ToString();
         gameOverHighScoreText.text = "High Score: " + highScore.ToString();
         OpenScreen(gameOverScreen);
+    }
+
+    public void SetPause(bool set){
+        pauseScreen.SetActive(set);
+        GameManager.instance.SetPause(set);
+    }
+
+    public void SaveScore(){
+        GameManager.instance.SaveScore(nameField.text);
+        GameManager.instance.Restart();
     }
 
     public void SetCountdownText(int time){
@@ -66,7 +71,6 @@ public class GuiManager : MonoBehaviour
     public void UpdateWorldCoins(int coins){
         coinCountWorldText.text = coins.ToString();
     }
-
     
 
     public void UpdateWorldLives(int lives){

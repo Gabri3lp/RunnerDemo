@@ -63,7 +63,6 @@
      <Compile Include="Assets\Scripts\ScoreBoard.cs" />
      <Compile Include="Assets\Scripts\Shop.cs" />
      <Compile Include="Assets\Scripts\StorageManager.cs" />
-     <None Include="Assets\BayatGames\Free Platform Game Assets\Readme.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/Gabriel/Documents/RunnerDemo/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
