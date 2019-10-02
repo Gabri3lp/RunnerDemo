@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{32029CFC-BD0C-2C21-909A-7BFCBD4393C4}</ProjectGuid>
+    <ProjectGuid>{1C9F4158-EB41-3600-8133-8F5FD9D5C19C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -53,43 +53,49 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BackgroundController.cs" />
-     <Compile Include="Assets\GameManager.cs" />
-     <Compile Include="Assets\GuiManager.cs" />
-     <Compile Include="Assets\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\BackgroundController.cs" />
+     <Compile Include="Assets\Scripts\BackgroundDependentObject.cs" />
+     <Compile Include="Assets\Scripts\CoinSpawner.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GuiManager.cs" />
+     <Compile Include="Assets\Scripts\ObstacleSpawner.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\ScoreBoard.cs" />
+     <Compile Include="Assets\Scripts\Shop.cs" />
+     <Compile Include="Assets\Scripts\StorageManager.cs" />
      <None Include="Assets\BayatGames\Free Platform Game Assets\Readme.txt" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>C:/Users/Gabriel/Documents/Unity Projects/Runner Demo/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Documents/RunnerDemo/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>C:/Users/Gabriel/Documents/Unity Projects/Runner Demo/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Documents/RunnerDemo/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/Gabriel/Documents/Unity Projects/Runner Demo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Documents/RunnerDemo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/Gabriel/Documents/Unity Projects/Runner Demo/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Documents/RunnerDemo/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>C:/Users/Gabriel/Documents/Unity Projects/Runner Demo/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Documents/RunnerDemo/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Users/Gabriel/Documents/Unity Projects/Runner Demo/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Documents/RunnerDemo/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>C:/Users/Gabriel/Documents/Unity Projects/Runner Demo/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Documents/RunnerDemo/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>C:/Users/Gabriel/Documents/Unity Projects/Runner Demo/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Documents/RunnerDemo/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Tilemap.Editor">
- <HintPath>C:/Users/Gabriel/Documents/Unity Projects/Runner Demo/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Documents/RunnerDemo/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/Gabriel/Documents/Unity Projects/Runner Demo/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Documents/RunnerDemo/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>C:/Users/Gabriel/Documents/Unity Projects/Runner Demo/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Documents/RunnerDemo/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

@@ -2,10 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script that controls the movement of the background 
 public class BackgroundController : MonoBehaviour
 {
+    public static BackgroundController instance; 
+    private void Awake() {
+        if(instance == null)
+            instance = this;
+        else if(instance != this)
+            Destroy(this.gameObject);
+    }
+
+    public float currentSpeed;
     float speed;
-    float currentSpeed;
     int accelerationFrames;
     public Transform bg1, bg2;
     Vector3 startPos;
@@ -14,8 +23,8 @@ public class BackgroundController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        accelerationFrames = PlayerController.instance.accelerationFrames;//Though the background is actually the one moving this is a player attribute.
-        if(accelerationFrames == 0)                             //Set to one to avoid math errors.
+        accelerationFrames = PlayerController.instance.accelerationFrames;  //Though the background is actually the one moving this is a player attribute.
+        if(accelerationFrames == 0)                                         //Set to one to avoid math errors.
             accelerationFrames = 1;
         startPos = this.transform.position;
         maxDeltaPos = bg2.position.x - bg1.position.x;
@@ -37,7 +46,7 @@ public class BackgroundController : MonoBehaviour
 
     void Move(float speed){    
         PlayerController.instance.SetHorizontalSpeed(speed);
-        deltaPos = Mathf.Repeat(deltaPos + speed, maxDeltaPos); //Repeat the offset of the background between 0 and maxDeltaPos
+        deltaPos = Mathf.Repeat(deltaPos + speed, maxDeltaPos);     //Repeat the offset of the background between 0 and maxDeltaPos
         this.transform.position = startPos + deltaPos * Vector3.left;          
     }
 
