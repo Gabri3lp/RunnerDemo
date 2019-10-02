@@ -4,6 +4,12 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
+[System.Serializable]
+public struct Score{
+    public string name;
+    public int value;
+}
+
 public class StorageManager : MonoBehaviour
 {
     public static StorageManager instance; 
@@ -14,7 +20,7 @@ public class StorageManager : MonoBehaviour
             Destroy(this.gameObject);
         DontDestroyOnLoad(this.gameObject);
     }
-    List<int> scores = new List<int>();
+    List<Score> scores = new List<Score>();
     int lives = 0, coins = 0;
     public bool isMatchActive = false;
     // Start is called before the first frame update
@@ -42,18 +48,17 @@ public class StorageManager : MonoBehaviour
         isMatchActive = set;
     }
 
-    public void AddScore(int score){
+    public void AddScore(Score score){
         scores.Add(score);
-        SaveGame();
     }
 
-    public int[] GetSortedScores(){
-        scores.Sort();
+    public Score[] GetSortedScores(){
+        scores.Sort((s1, s2) => s2.value.CompareTo(s1.value));
         return scores.ToArray();
     }
-
     
     private void OnApplicationQuit() {
+        SaveGame();
     }
 
 
@@ -72,10 +77,9 @@ public class StorageManager : MonoBehaviour
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/scores.save", FileMode.Open);
-            scores = (List<int>) bf.Deserialize(file);
+            scores = (List<Score>) bf.Deserialize(file);
             file.Close();
-        } else
-            Debug.Log("No game saved!");
+        }
     }
 
 

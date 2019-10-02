@@ -24,14 +24,15 @@ public class ScoreBoard : MonoBehaviour
     }
 
     private void OnEnable() {
-        int[] scores = StorageManager.instance.GetSortedScores();
-        for (int i = scores.Length - 1; i >= 0; i--)
-            AddScore(scores.Length - i, scores[i]);
+        Score[] scores = StorageManager.instance.GetSortedScores();
+        for (int i = 0; i < scores.Length; i++)
+            AddScore(i + 1, scores[i]);
     }
 
-    public void AddScore(int index, int score){ 
+    public void AddScore(int index, Score score){ 
         GameObject item = Instantiate(scorePrefab, content);
         item.transform.GetChild(0).GetComponent<Text>().text = index.ToString();
-        item.transform.GetChild(1).GetComponent<Text>().text = score.ToString();
+        item.transform.GetChild(1).GetComponent<Text>().text = score.name;
+        item.transform.GetChild(2).GetComponent<Text>().text = score.value.ToString();
     }
 }

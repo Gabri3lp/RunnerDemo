@@ -57,20 +57,22 @@ public class GameManager : MonoBehaviour
         GuiManager.instance.OpenShop(livesCount, coinsCount, CanBuyLife());
     }
 
-    void SetPause(bool set){
+    public void SetPause(bool set){
         isGamePaused = set;
         Time.timeScale = set? 0 : 1;
     }
 
     void GameOver(){
         PlayerPrefs.DeleteAll();
+        Score maxScore = StorageManager.instance.GetSortedScores()[0];
+        GuiManager.instance.OpenGameOverScreen(coinsCount, maxScore.value);
         StorageManager.instance.SetMatchActive(false);
         SetPause(true);
-        StorageManager.instance.AddScore(coinsCount);
-        int maxScore = Mathf.Max(StorageManager.instance.GetSortedScores());
-        GuiManager.instance.OpenGameOverScreen(coinsCount, maxScore);
     }
 
+    public void SaveScore(string playerName){
+        StorageManager.instance.AddScore(new Score{name = playerName, value = coinsCount});
+    }
 
     public void Restart(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
