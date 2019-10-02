@@ -17,12 +17,15 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public int accelerationFrames;
     public int jumpHeight;
+    SpriteRenderer sr;
     Animator ator;
     Rigidbody2D rb;
     bool isGrounded = true;
+    bool isInvulnerable = false;
     Vector2 jumpVelocity;
     void Start()
     {
+        sr = this.GetComponent<SpriteRenderer>();
         ator = this.GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody2D>();
         float height = this.GetComponent<SpriteRenderer>().size.y; //Heigh of the sprite
@@ -62,6 +65,31 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.CompareTag("Ground")){      
             isGrounded = false;                         
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        //If the player touches a coin he destroys it and add one to the inventory.
+        if(other.CompareTag("Coin")){
+            Destroy(other.gameObject);
+            GameManager.instance.AddCoin();
+        }else if(!isInvulnerable && other.CompareTag("Spike")){
+            isInvulnerable = true;
+            StartCoroutine(TakeDamageAnimation());
+            GameManager.instance.TakeDamage();
+        }
+    }
+
+    IEnumerator TakeDamageAnimation(){
+        float deltaTime = 0;
+        while(deltaTime < 3){
+            sr.enabled = false;
+            yield return new WaitForSeconds(0.15f);
+            deltaTime += 0.15f;
+            sr.enabled = true;
+            yield return new WaitForSeconds(0.15f);
+            deltaTime += 0.15f;
+        }
+        isInvulnerable = false;
     }
     
     //Handle horizontal velocity
